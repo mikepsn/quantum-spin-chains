@@ -154,12 +154,17 @@ The main aims are to:
     and each matrix element $H_{nm}$ is given by:
         \[ H_{nm} = \langle \phi_n | H | \phi_m \rangle \]
     The Heisenberg Hamiltonian can be expanded as follows:
-    \begin{eqnarray*}
-    H & = & \sum_{i = 1}^{N} \vec{S}(i) \cdot \vec{S}(i+1) \\ 
-    H & = & \sum_{i = 1}^{N} \left[ S_x(i)S_x(i+1) +
-                                    S_y(i)S_y(i+1) +
-                                    S_z(i)S_z(i+1) \right] \\
-    \end{eqnarray*}
+
+    \begin{equation*} 
+    H  =  \sum_{i = 1}^{N} \vec{S}(i) \cdot \vec{S}(i+1) 
+    \end{equation*} 
+
+    \begin{multline*} 
+        H  =  \sum_{i = 1}^{N} [S_x(i)S_x(i+1) +  \\
+                                S_y(i)S_y(i+1) +  
+                                S_z(i)S_z(i+1) ]
+    \end{multline*} 
+
     Using the raising and lowering operators:
         \[ S_{\pm} = S_x(i) \pm iS_y(i) \]
     the Hamiltonian $H$ can be written in terms of two components such that:
@@ -179,10 +184,12 @@ The main aims are to:
     of each integer is made up of 0's and 1's, where 0 represents spin down $-\frac{1}{2}$
     and 1 represents spin up $+\frac{1}{2}$. Each bit position represents the next site
     in the chain starting with the least significant bit as the first site.
-    The table below shows the representation of the complete set of states using this method
+    Table~\ref{tbl:binary} shows the representation of the complete set of states using this method
     for a chain of size $N = 4$.
 
     \begin{table}
+    \caption{Binary representation of complete set of states $\{|\phi_i\rangle\}$ for $N=4$} 
+    \label{tbl:binary} 
     \begin{center}
         \begin{tabular}{|c||c|c|c|c|} \hline
         State $|\phi_i\rangle$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\ \hline \hline
@@ -203,11 +210,6 @@ The main aims are to:
        15 & 1 & 1 & 1 & 0 \\ \hline
        16 & 1 & 1 & 1 & 1 \\ \hline
        \end{tabular}
-       \vspace{1mm}
-       \begin{center}
-       Table 1 : Binary representation of complete set of states $\{|\phi_i\rangle\}$
-       for $N=4$
-       \end{center}
     \end{center}
     \end{table} 
 
@@ -227,11 +229,13 @@ The main aims are to:
 \section{Results}
 
     \subsection*{Energy Eigenvalues for Various Chain Sizes} 
-    The table below shows the results of running the program for values of ranging
+    Table~\ref{tbl:eigenvalues} shows the results of running the program for values of ranging
     from $N=2$ to $N=10$. The results in the table are $E_i/N$ where $i$ is the
     $i$th energy eigenstate and $N$ is the size of the quantum spin chain.
 
     \begin{table*}[ht] 
+        \caption{Energy eigenvalues $E_i/N$ for different sized quantum spin chains} 
+        \label{tble:eigenvalues} 
     \begin{center} 
         \begin{tabular}{|c|r|r|r|r|r|r|r|r|r|r|} \hline 
       $i$ & N=2   & N=3    & N=4    & N=5    & N=6    & N=7    & N=8       & N=9   & N=10\\ \hline  \hline
@@ -246,19 +250,17 @@ The main aims are to:
         8 &       &        &        &        &        &        &           & 0.028 & -0.050 \\ \hline
         9 &       &        &        &        &        &        &           &       & -0.050 \\ \hline
         \end{tabular}
-        \vspace{1mm}
-        \begin{center}
-        Table 2 : Energy eigenvalues $E_i/N$ for different sized quantum spin chains
-        \end{center}
     \end{center}
     \end{table*} 
 
-    The table below shows the error code \texttt{ierr} given from the 
+    Table~\ref{tbl:error-codes} shows the error code \texttt{ierr} given from the 
     \texttt{imtql1} subroutine for the different values of $N$. The error code
     is 0 if no error occured and a positive integer if an error occured. The value
     is set $j$ if the $j$th eigenvalue has not being determined after 30 iterations.
 
     \begin{table} 
+        \caption{Error codes when diagonalising matrices for different $N$}
+        \label{tbl:error-codes} 
     \begin{center}
         \begin{tabular}{|c|c|} \hline
         $N$ & \texttt{ierr} \\ \hline \hline
@@ -272,20 +274,19 @@ The main aims are to:
         9 & 6 \\ \hline
        10 & 2 \\ \hline
         \end{tabular}
-        \vspace{1mm}
-        \begin{center}
-            Table 3 : Error Codes when diagonalising matrices for different $N$
-        \end{center}
     \end{center}
     \end{table} 
   
     \subsection*{Spin Chains in the presence of a Magnetic Field of strength $B_z\mu$}
-    Tables 4--9 show the energy eigenvalues for a chain of $N=6$, for different 
-    values of the magnetic field strength $B_z\mu$. Each table 4--9, is for 
-    a particular energy level. For example table 4 shows the results for the
-    lowest energy level $E_0$.
+    Tables~\ref{tbl:energy-1}--~\ref{tbl:energy-6} 
+    show the energy eigenvalues for a chain of $N=6$, for different 
+    values of the magnetic field strength $B_z\mu$. Each table shows 
+    a particular energy level. For example Table~\ref{tbl:energy-1} 
+    shows the results for the lowest energy level $E_0$.
 
     \begin{table}
+        \caption{Energy Levels $E_0$ for varying $B_z\mu$ ( \texttt{1.dat} )}
+        \label{tbl:energy-1}
         \begin{center}
         \begin{tabular}{|c|c|} \hline
         $B_z\mu$ & $E_0$  \\ \hline \hline
@@ -300,14 +301,12 @@ The main aims are to:
         500  & -1878.08728\\ \hline 
         1000 & -3757.09559\\ \hline 
         \end{tabular}
-        \vspace{1mm}
-        \begin{center}
-            Table 4 : Energy Levels $E_0$ for varying $B_z\mu$ ( \texttt{1.dat} )
-        \end{center}
         \end{center}
     \end{table}
 
     \begin{table} 
+        \caption{Energy Levels $E_1$ for varying $B_z\mu$ ( \texttt{2.dat} ) }
+        \label{tbl:energy-2} 
         \begin{center}
         \begin{tabular}{|c|c|} \hline
         $B_z\mu$ & $E_1$  \\ \hline \hline
@@ -322,15 +321,13 @@ The main aims are to:
         500  & -566.484799  \\ \hline
         1000 & -1133.50039 \\ \hline
         \end{tabular}
-         \vspace{1mm}
-        \begin{center}
-            Table 5 : Energy Levels $E_1$ for varying $B_z\mu$ ( \texttt{2.dat} )
-        \end{center}
         \end{center}
     \end{table} 
 
     \begin{table} 
-         \begin{center}
+        \caption{Energy Levels $E_2$ for varying $B_z\mu$ ( \texttt{3.dat} )}
+        \label{tbl:energy-3} 
+        \begin{center}
         \begin{tabular}{|c|c|} \hline
         $B_z\mu$ & $E_2$ \\ \hline \hline
         0    & -2.04416367 \\ \hline
@@ -344,15 +341,13 @@ The main aims are to:
         500  & -288.967431  \\ \hline
         1000 & -577.759148 \\ \hline
         \end{tabular}
-         \vspace{1mm}
-        \begin{center}
-            Table 6 : Energy Levels $E_2$ for varying $B_z\mu$ ( \texttt{3.dat} )
-        \end{center}
         \end{center}
     \end{table} 
 
     \begin{table} 
-         \begin{center}
+        \caption{Energy Levels $E_3$ for varying $B_z\mu$ ( \texttt{4.dat} )}
+        \label{tbl:energy-4} 
+        \begin{center}
         \begin{tabular}{|c|c|}  \hline
         $B_z\mu$ & $E_4$  \\ \hline \hline
         0    & -.63379594 \\ \hline
@@ -366,15 +361,13 @@ The main aims are to:
         500  &  -223.368376 \\ \hline
         1000 &  -447.052966 \\ \hline
         \end{tabular}
-         \vspace{1mm}
-        \begin{center}
-            Table 7 : Energy Levels $E_3$ for varying $B_z\mu$ ( \texttt{4.dat} )
-        \end{center}
         \end{center}
     \end{table} 
 
     \begin{table} 
-         \begin{center}
+        \caption{Energy Levels $E_4$ for varying $B_z\mu$ ( \texttt{5.dat} )}
+        \label{tbl:energy-5} 
+        \begin{center}
         \begin{tabular}{|c|c|} \hline
         $B_z\mu$ & $E_4$ \\ \hline \hline
         0    &  -.63379594 \\ \hline
@@ -388,14 +381,12 @@ The main aims are to:
         500  &  -136.135355 \\ \hline
         1000 &  -232.535479 \\ \hline
         \end{tabular}
-         \vspace{1mm}
-        \begin{center}
-            Table 8 : Energy Levels $E_4$ for varying $B_z\mu$ ( \texttt{5.dat} )
-        \end{center}
-        \end{center}
+        \end{center} 
     \end{table} 
 
     \begin{table} 
+        \caption{Energy Levels $E_5$ for varying $B_z\mu$ ( \texttt{6.dat} ) }
+        \label{tbl:energy-6} 
          \begin{center}
         \begin{tabular}{|c|c|} \hline
         $B_z\mu$ & $E_5$ \\ \hline \hline
@@ -410,21 +401,18 @@ The main aims are to:
         500   & -116.238876 \\ \hline
         1000  & -232.535479 \\ \hline
         \end{tabular}
-         \vspace{1mm}
-        \begin{center}
-            Table 9 : Energy Levels $E_5$ for varying $B_z\mu$ ( \texttt{6.dat} )
-        \end{center}
-        \end{center}
+        \end{center} 
     \end{table} 
 
-    The data in tables 4--9 have been plotted in the figure below. The lines
+    The data in Tables~\ref{tbl:energy-1}--~\ref{tbl:energy-6}  
+    have been plotted in Figure~\ref{fig:magnetic}. The lines
     \texttt{1.dat} -- \texttt{6.dat} correspond to the data in the different
     tables. Each lines in the plot corresponds to one of the six energy eigenvalues
     of the $N=6$ quantum spin chain.
 
     \begin{figure}[ht!]  
         \centering
-        \caption{Plot 1 : Magnetic Field Strength $(B_z\mu)$ along the $x$-axis
+        \caption{Magnetic Field Strength $(B_z\mu)$ along the $x$-axis
              and Energy Level along the $y$-axis.}
         \label{fig:magnetic} 
         \includegraphics[width=\columnwidth]{magnetic.eps}
